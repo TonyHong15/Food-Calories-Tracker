@@ -2,7 +2,6 @@
 "use strict";
 
 const express = require("express");
-const { truncate } = require("fs");
 const http = require("http");
 const mongoose = require('mongoose')
 
@@ -21,7 +20,7 @@ const bodyParser = require("body-parser");
 mongoose.set("useFindAndModify", false);
 
 // planning all functions 
-// const{  } = require("./services/...");
+const{ getAllFood, addFood, deleteFood, getTotalCalories} = require("./tracker");
 
 const app = express();
 
