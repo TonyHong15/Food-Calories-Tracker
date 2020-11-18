@@ -1,0 +1,47 @@
+.landingPage {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+/*    -ms-overflow-style: none;*/
+}
+
+.header{
+/*    display: flex;*/
+    text-align: center;
+    width: 100%;
+/*    display: relative;*/
+}
+
+.landingPage_main {
+    background-image: url('https://npuh82iut7x3aosxba3ol14m-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/iStock-1179405499-wellness.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.quote {
+    text-align: center;
+    width: 100%;
+}
+
+.landingPage_enter:link, .landingPage_enter:visited {
+    background-color: #f44336;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.landingPage_enter:hover, .landingPage_enter:active {
+    background-color: red;
+}
