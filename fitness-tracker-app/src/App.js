@@ -15,6 +15,9 @@ class App extends React.Component{
 
     selectFunctionality(selectedType) {
         this.setState({selectedFunction: selectedType});
+        if (selectedType == "calculate_calories"){
+            console.log("test if statement passed")
+        }
         console.log(selectedType)
     }
 
