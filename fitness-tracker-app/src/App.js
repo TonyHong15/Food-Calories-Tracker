@@ -15,6 +15,7 @@ class App extends React.Component{
         }
     }
 
+    //this function helps to switch the functionality user can use in the side bar
     selectFunctionality(selectedType) {
         this.setState({selectedFunction: selectedType});
         if (selectedType == "calculate_calories"){
@@ -22,11 +23,16 @@ class App extends React.Component{
         }
         console.log(selectedType)
     }
-
+    
+    //switch which component to use on the right side of main page
     switchComponents() {
         switch(this.state.selectedFunction) {
             case 'calculate_calories':
                 return <Calories/>
+            case 'user_info':
+                // not implemented yet
+            case 'Manage Food':
+                // not implemented yet
         }
     }
 
