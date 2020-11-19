@@ -32,10 +32,10 @@ class SideBar extends React.Component {
                     }}
                 />
                 <FunctionItem
-                    text="Calculate Caloeries" 
-                    id="FunctionItem Calculate_Caloeries_button" 
+                    text="Calculate Calories" 
+                    id="FunctionItem Calculate_Calories_button" 
                     onClick={() => {
-                        this.updateSelection("calculate_caloeries");
+                        this.updateSelection("calculate_calories");
                     }}
                 />
             </div>
