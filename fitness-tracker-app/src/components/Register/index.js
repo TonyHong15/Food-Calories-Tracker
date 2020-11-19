@@ -33,17 +33,18 @@ class Register extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            firstName: "",
+            lastName: "",
+            username: "",
+            password: "",
+            birthday: null,
+            slideIn: true,
+            slideDirection: "right",
+            redirect: false
+        };
     }
-    state = {
-        firstName: "",
-        lastName: "",
-        username: "",
-        password: "",
-        birthday: null,
-        slideIn: true,
-        slideDirection: "right",
-        redirect: false
-    };
+    
     
 
     render() {
@@ -76,7 +77,7 @@ class Register extends React.Component {
                         </div>
                     </div>
                     <Container className='register__form' maxWidth="xs">
-                        <RegisterForm appState={this.props.appState}
+                        <RegisterForm
                             firstName={this.state.firstName}
                             lastName={this.state.lastName}
                             username={this.state.username}

@@ -13,6 +13,29 @@
 /*    display: relative;*/
 }
 
+
+.login_form_element{
+    position: absolute;
+    height: 80%;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-top:5%;
+}
+.login_register_wrapper{
+    position: absolute;
+    margin-top: 3%;
+    height: 40%;
+    width: 30%;
+    margin-left: 10%;
+    margin-right: 60%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 50px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+}
 .landingPage_main {
     background-image: url('https://npuh82iut7x3aosxba3ol14m-wpengine.netdna-ssl.com/wp-content/uploads/2020/01/iStock-1179405499-wellness.jpg');
     background-position: center;
