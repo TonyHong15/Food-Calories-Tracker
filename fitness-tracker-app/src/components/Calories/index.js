@@ -9,8 +9,8 @@ class Calories extends React.Component {
 
     render() {
         return (
-            <div class="SideBar">
-                <p>Display calories here</p>
+            <div class="CaloriesBar">
+                <p> Display calories here Display calories hereDisplay calories hereDisplay calories hereDisplay calories hereDisplay calories here</p>
             </div>
         );
     }
