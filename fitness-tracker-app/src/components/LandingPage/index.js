@@ -13,7 +13,7 @@ class LandingPage extends React.Component{
                 <div class="landingPage_main">
                 <h1 class="header"> Welcome to Fitness Tracker App </h1>
                 <h3 class="quote"> Success usually comes to those who are too busy to be looking for it... </h3>
-                <Link class="landingPage_enter" to="./App">
+                <Link class="landingPage_enter" to="./Register">
                     Enter Site
                 </Link>
                 </div>

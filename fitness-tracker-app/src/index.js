@@ -4,17 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import LandingPage from './components/LandingPage';
+import Register from './components/Register'
 
 //import * as serviceWorker from "./serviceWorker";
-import { Link, Route, Switch, BrowserRouter } from "react-router-dom";
+import {Route, Switch, BrowserRouter } from "react-router-dom";
 
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <Switch>
+                <Route exact path="/Register" render={() => <Register/>} />
                 <Route exact path="/App" render={() => <App/>} />
                 <Route path="/" render={() => <LandingPage/>} />
+
             </Switch>
         </BrowserRouter>
     </React.StrictMode>,
