@@ -12,10 +12,10 @@ class Calories extends React.Component {
     render() {
         const caloriePCT = 60;
         return (
-            <div class="CaloriesBackground">
-                <div class="CaloriesView">
+            <div className="CaloriesBackground">
+                <div className="CaloriesView">
                     <h1> Calories % Consumed Today: </h1>
-                    <div class="CaloriesProgressBar">
+                    <div className="CaloriesProgressBar">
                         <CircularProgressbar
                             value={caloriePCT}
                             text={`${caloriePCT}%`}

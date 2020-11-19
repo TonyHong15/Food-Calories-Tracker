@@ -4,6 +4,7 @@ import {Route, Switch, BrowserRouter } from "react-router-dom";
 import LandingPage from './components/LandingPage/index.js'
 import SideBar from './components/SideBar/index.js'
 import Calories from './components/Calories/index.js'
+import ManageFood from './components/ManageFood/index.js'
 
 
 class App extends React.Component{
@@ -32,7 +33,7 @@ class App extends React.Component{
             case 'user_info':
                 // not implemented yet
             case 'Manage Food':
-                // not implemented yet
+                return <ManageFood/>
         }
     }
 
