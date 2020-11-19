@@ -14,7 +14,7 @@ class ManageFood extends React.Component {
         const { history, app } = this.props;
 
         return (
-            <div>
+            <div className="ManageFoodBackground">
             <Grid className="requests-grid">
                 <Grid item xs="2"></Grid>
                 <Grid item xs="7">
