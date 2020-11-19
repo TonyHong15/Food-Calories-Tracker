@@ -29,17 +29,27 @@ class LandingPage extends React.Component{
                 <div className="landingPage_main">
                     <h1 className="header"> Welcome to Fitness Tracker App </h1>
                     <h3 className="quote"> Success usually comes to those who are too busy to be looking for it... </h3>
-                    <Link className="landingPage_enter" to="./Register">
-                        Enter Site
-                    </Link>
-                    <div className="login_register_wrapper">
+                    <div className="login_wrapper">
                         <ThemeProvider theme={theme} >
                             <Typography variant="h3" fontWeight={900}>Have An Account?</Typography>
                         </ThemeProvider>
                         <div className="login_form_element">
                             <LoginForm />
                         </div>
+
+
                     </div>
+                    <div className="landing_register_wrapper">
+                        <ThemeProvider theme={theme} >
+                            <Typography variant="h3" fontWeight={900}>OR</Typography>
+                        </ThemeProvider>
+                        <Link className="landingPage_enter" to="./Register">
+                            Create An Account Here
+                        </Link>
+
+
+                    </div>
+
                 </div>
             </div>
 
