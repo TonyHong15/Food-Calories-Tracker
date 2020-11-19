@@ -2,25 +2,31 @@ import './App.css'
 import React from 'react'
 import {Route, Switch, BrowserRouter } from "react-router-dom";
 import LandingPage from './components/LandingPage/index.js'
+import SideBar from './components/SideBar/index.js'
 
 class App extends React.Component{
 
-  constructor(props) {
+    constructor(props) {
     super(props)
-  }
-  render() {
+    this.state = {
+            selectedFunction: 'user_info'
+        }
+    }
 
-    return (
-      <div>
-        <BrowserRouter>
-          <Switch>
-            <Route path="/" render={() => LandingPage} />
-          </Switch>
-        </BrowserRouter>
-      </div>
-  
-    );
-  }
+    selectFunctionality(selectedType) {
+        this.setState({selectedFunction: selectedType});
+        console.log(selectedType)
+    }
+
+    render() {
+
+        return (
+            <div>
+                <SideBar className="SideBar" selectFunctionality={this.selectFunctionality.bind(this)} />
+            </div>
+
+        );
+    }
     
 }
 
