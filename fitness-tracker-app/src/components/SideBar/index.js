@@ -9,14 +9,51 @@ import "./styles.css"
  */
 class SideBar extends React.Component {
     
+    constructor(props) {
+    super(props);
+    this.state = {
+        image: null,
+        image_src: null
+    };
+
+        this.onImageChange = this.onImageChange.bind(this);
+        this.onImageChange.bind(this)
+        this.updateSelection.bind(this);
+    }
+    
+    //change the selected type
     updateSelection(selectedType) {
         this.props.selectFunctionality(selectedType);
     }
+    
+    //upload the image from the computer
+    onImageChange = event => {
+        if (event.target.files && event.target.files[0]) {
+            const img = event.target.files[0];
+            this.setState({
+                image: img,
+                image_src: URL.createObjectURL(img)
+            });
+        }
+    };
 
     render() {
-        this.updateSelection.bind(this);
+        console.log(this.state.image)
+        console.log(this.state.image_src)
         return (
             <div class="SideBar">
+                <img className="Side_Bar_Profile_Pic" src={this.state.image_src}/>
+                
+                <form action="image upload">
+                    <input
+                        ref={this.inputRef}
+                        type="file"
+                        accept="image/*"
+                        name="fileupload"
+                        onChange={this.onImageChange}
+                    />
+                </form>
+                
                 <FunctionItem
                     text="User Info" 
                     id="FunctionItem User_Info_button"
@@ -36,6 +73,13 @@ class SideBar extends React.Component {
                     id="FunctionItem Calculate_Calories_button" 
                     onClick={() => {
                         this.updateSelection("calculate_calories");
+                    }}
+                />
+                <FunctionItem
+                    text="Log Out" 
+                    id="FunctionItem Log_Out_button"
+                    onClick={() => {
+                        //log out
                     }}
                 />
             </div>
