@@ -15,16 +15,14 @@ class ManageFood extends React.Component {
 
         return (
             <div className="ManageFoodBackground">
-            <Grid className="requests-grid">
-                <Grid item xs="2"></Grid>
-                <Grid item xs="7">
-
+            <Grid container className="requests-grid">
+                <Grid item xs={1}></Grid>
+                <Grid item xs={3}>
                     {<FoodForm dashboard={this} app={app}/>}
-
-                    {<FoodList app={app}/>}
-
                 </Grid>
-                <Grid item xs="2">
+                <Grid item xs={2}></Grid>
+                <Grid item xs={3}>
+                    {<FoodList app={app}/>}
                 </Grid>
             </Grid>
             </div>
