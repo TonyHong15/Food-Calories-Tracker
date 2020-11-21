@@ -1,5 +1,6 @@
 import React from 'react'
 import "./styles.css"
+import {Link} from 'react-router-dom'
 
 /**
  * A menu with Side Bar where user can choose functionality
@@ -36,6 +37,11 @@ class SideBar extends React.Component {
             });
         }
     };
+
+    //log out function
+    logOut() {
+        //funtion called when log out
+    }
 
     render() {
         console.log(this.state.image)
@@ -79,13 +85,14 @@ class SideBar extends React.Component {
                         this.updateSelection("calculate_calories");
                     }}
                 />
-                <FunctionItem
-                    text="Log Out" 
-                    id="FunctionItem Log_Out_button"
+
+                <Link className="FunctionItem Log_Out_button"
+                    to="./LandingPage" 
                     onClick={() => {
-                        //log out
-                    }}
-                />
+                        this.logOut();
+                    }}>
+                    Log Out
+                </Link>
             </div>
         );
     }
