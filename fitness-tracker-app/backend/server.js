@@ -20,7 +20,7 @@ const bodyParser = require("body-parser");
 mongoose.set("useFindAndModify", false);
 
 // planning all functions 
-const{ getAllFood, addFood, deleteFood, getTotalCalories} = require("./tracker");
+const{ getAllFood, addFood, deleteFood, getTotalCalories} = require("./services/tracker");
 const { scryptSync } = require("crypto");
 
 const app = express();
