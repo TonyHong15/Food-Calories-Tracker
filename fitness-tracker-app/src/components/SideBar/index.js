@@ -43,9 +43,13 @@ class SideBar extends React.Component {
         return (
             <div class="SideBar">
                 <img className="Side_Bar_Profile_Pic" src={this.state.image_src}/>
-                
-                <form action="image upload">
+            
+                <label for="profile_image_upload_button" class="profile_image_upload_button">
+                </label>
+            
+                <form className="profile_image_upload" action="image upload">
                     <input
+                        id="profile_image_upload_button"
                         ref={this.inputRef}
                         type="file"
                         accept="image/*"

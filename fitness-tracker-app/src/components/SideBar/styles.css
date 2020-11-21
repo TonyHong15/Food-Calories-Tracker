@@ -49,3 +49,23 @@
     width: 13vw;
     height: 13vw;
 }
+
+.profile_image_upload{
+    display: none;
+}
+
+.profile_image_upload_button{
+    margin-top: 105%;
+    left: 70%;
+    width:0.85vw;
+    height:2vw;
+    border-radius: 50%;
+    position: absolute;
+    cursor:pointer;
+    background-color: white;
+    display:block;
+    background-image: url(profile_pic.PNG);
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    cursor: pointer;
+}
