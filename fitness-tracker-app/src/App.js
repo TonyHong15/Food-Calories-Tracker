@@ -32,7 +32,7 @@ class App extends React.Component{
                 return <Calories/>
             case 'user_info':
                 // not implemented yet
-            case 'Manage Food':
+            case 'manage_food':
                 return <ManageFood/>
         }
     }
