@@ -27,3 +27,61 @@
     height: 20%;
     background-color: white;
 }
+.calories_consumed_wrapper{
+    position: absolute;
+    left: 2%;
+    width: 30%;
+
+}
+.calories_consumed_text{
+    position: absolute;
+    font-size: 1.1rem;
+    height: 100%;
+    width: 100%;
+
+}
+.calories_consumed_number{
+    position: absolute;
+    font-size: 1.5rem;
+    height: 100%;
+    width: 100%;
+    margin-top: 12%;
+    color: rgb(0, 132, 255);
+    font-weight: 700;
+}
+
+.calories_remaining_wrapper{
+    position: absolute;
+    left: 40%;
+    width: 30%;
+
+}
+.calories_remaining_text{
+    position: absolute;
+    font-size: 1.1rem;
+    height: 100%;
+    width: 100%;
+}
+.calories_remaining_number{
+    position: absolute;
+    font-size: 1.5rem;
+    height: 100%;
+    width: 100%;
+    margin-top: 12%;
+    color: rgb(0, 132, 255);
+    font-weight: 700;
+}
+
+.calorie_goal_summary_wrapper{
+    position: relative;
+    top: 60%;
+    font-size: 1.5rem;
+}
+.calorie_goal_summary_over{
+    font-weight: 600;
+    color: rgb(221, 12, 12);
+}
+.calorie_goal_summary_under{
+    font-weight: 600;
+    color: rgb(12, 221, 12);
+}

@@ -83,7 +83,33 @@ class DailyOverview extends React.Component{
                         />
                     }
                     <div className='progress_statistics'>
+                        <div className='calories_consumed_wrapper'>
+                            <span className = 'calories_consumed_text'>
+                                Calories Consumed
 
+                            </span>
+                            <span className = 'calories_consumed_number'>
+                                {currentCalories}
+
+                            </span>                            
+                          
+                        </div>
+                        <div className='calories_remaining_wrapper'>
+                            <span  className = 'calories_remaining_text'>
+                                Calories Remaining  
+                            </span>
+                            <span  className = 'calories_remaining_number'>
+                                {calorieGoal - currentCalories}
+                            </span>
+                        </div>
+                        <div className='calorie_goal_summary_wrapper'>
+                            {caloriePCT > 100 &&
+                                <span className='calorie_goal_summary_over'> You are { currentCalories - calorieGoal} calories over today's goal</span>
+                            }
+                             {caloriePCT <= 100 &&
+                                <span className='calorie_goal_summary_under'> You are on track for today's goal</span>
+                            }
+                        </div>
                     </div>
                 </div>
                 {/* <div>
