@@ -10,3 +10,11 @@
     margin-left: -300px;
 }
   
+#searchResults {
+    display: none;
+    margin-top: 20px;
+    background-color: bisque;
+    width: 100%;
+    height: auto;
+    overflow: scroll;
+}
