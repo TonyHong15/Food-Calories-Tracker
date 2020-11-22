@@ -14,17 +14,15 @@ class ManageFood extends React.Component {
         const { history, app } = this.props;
 
         return (
-            <div>
-            <Grid className="requests-grid">
-                <Grid item xs="2"></Grid>
-                <Grid item xs="7">
-
+            <div className="ManageFoodBackground">
+            <Grid container className="requests-grid">
+                <Grid item xs={1}></Grid>
+                <Grid item xs={3}>
                     {<FoodForm dashboard={this} app={app}/>}
-
-                    {<FoodList app={app}/>}
-
                 </Grid>
-                <Grid item xs="2">
+                <Grid item xs={2}></Grid>
+                <Grid item xs={3}>
+                    {<FoodList app={app}/>}
                 </Grid>
             </Grid>
             </div>

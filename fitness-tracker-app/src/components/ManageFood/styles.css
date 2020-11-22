@@ -1,0 +1,20 @@
+
+.ManageFoodBackground{
+    overflow: hidden;
+    position: fixed;
+    right: 0px;
+
+    width:85%;
+    height:100%;
+
+    background-color: BlanchedAlmond;
+}
+
+.ManageFoodCentered{
+    width: 600px;
+    height: 300px;
+    top: 30%;
+    left: 60%;
+    margin-top: -150px; 
+    margin-left: -300px;
+}

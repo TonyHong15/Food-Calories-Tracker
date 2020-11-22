@@ -4,7 +4,7 @@
     position: fixed;
     right: 0px;
 
-    width:80%;
+    width:85%;
     height:100%;
 
     background-color: pink;
@@ -36,5 +36,5 @@
 }
 
 .CaloriesProgressBar{
-    width: 70%;
+    width: 100%;
 }
