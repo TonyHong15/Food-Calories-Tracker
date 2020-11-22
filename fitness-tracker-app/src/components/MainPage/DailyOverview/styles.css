@@ -4,3 +4,26 @@
     width: 100%;
     border-radius: 5%;
 }
+.progress_components_wrapper{
+    margin: 2%;
+    width: 46%;
+    height: 92%;
+    border-radius: 3%;
+    text-align: center;
+    font-size: 1.1rem;
+    position: absolute;
+    background-color: rgb(231, 231, 231);
+}
+.progress_bar_size{
+    position: relative;
+    bottom: 4%;
+    width: 60%;
+    height: 60%;
+}
+.progress_statistics{
+    position: relative;
+    margin-left: 2%;
+    width: 96%;
+    height: 20%;
+    background-color: white;
+}
