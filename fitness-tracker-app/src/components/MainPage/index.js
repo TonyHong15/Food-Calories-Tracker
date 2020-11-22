@@ -1,6 +1,7 @@
 import React from 'react'
 import "./styles.css"
-import {Link} from 'react-router-dom'
+import DailyOverview from './DailyOverview';
+import History from './History'
 //landing page of the app
 class MainPage extends React.Component{
     constructor(props) {
@@ -9,9 +10,13 @@ class MainPage extends React.Component{
 
     render() {
         return(
-            <div >
-                <h1> This is the main page</h1>
-                
+            <div className="main_page_wrapper" >
+                <div className="daily_overview_wrapper">
+                    <DailyOverview/>
+                </div>
+                <div className="history_wrapper">
+                    <History/>
+                </div>
             </div>
 
         )

@@ -5,7 +5,7 @@ import LandingPage from './components/LandingPage/index.js'
 import SideBar from './components/SideBar/index.js'
 import Calories from './components/Calories/index.js'
 import ManageFood from './components/ManageFood/index.js'
-
+import MainPage from './components/MainPage/index.js'
 
 class App extends React.Component{
 
@@ -31,7 +31,7 @@ class App extends React.Component{
             case 'calculate_calories':
                 return <Calories/>
             case 'user_info':
-                // not implemented yet
+                return <MainPage/>
             case 'manage_food':
                 return <ManageFood/>
         }

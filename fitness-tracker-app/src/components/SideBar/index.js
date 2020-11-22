@@ -65,7 +65,7 @@ class SideBar extends React.Component {
                 </form>
                 
                 <FunctionItem
-                    text="User Info" 
+                    text="My Dashboard" 
                     id="FunctionItem User_Info_button"
                     onClick={() => {
                         this.updateSelection("user_info");
