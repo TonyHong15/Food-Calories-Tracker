@@ -1,0 +1,40 @@
+
+.CaloriesBackground{
+    overflow: hidden;
+    position: fixed;
+    right: 0px;
+
+    width:85%;
+    height:100%;
+
+    background-color: pink;
+}
+
+.CaloriesView{
+    /* overflow: hidden;
+    position: fixed;
+    right: 0px;
+
+    width:80%;
+    height:100%;
+
+    top: 20%;
+    left: 50%; */
+    /* margin-top: -100px; 
+    margin-left: -250px;  */
+
+    background-color: pink;
+    align-items: center;
+
+    position: fixed;
+    width: 600px;
+    height: 300px;
+    top: 30%;
+    left: 60%;
+    margin-top: -150px; /* Negative half of height. */
+    margin-left: -300px; /* Negative half of width. */
+}
+
+.CaloriesProgressBar{
+    width: 100%;
+}
