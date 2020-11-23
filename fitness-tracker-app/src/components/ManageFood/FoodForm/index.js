@@ -2,6 +2,8 @@ import React from 'react'
 import "./styles.css"
 import { TextField, Button } from '@material-ui/core';
 
+import FoodTracker from '../../../../server/services/tracker';
+
 /**
 *
  */
@@ -43,6 +45,7 @@ class FoodForm extends React.Component {
         });
         
         // TODO: Call the endpoint to the backend here
+        FoodTracker.addFood(newFood) 
     }
 
     render() {

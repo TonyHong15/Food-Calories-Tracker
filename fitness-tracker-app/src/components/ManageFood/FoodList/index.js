@@ -13,6 +13,7 @@ class FoodList extends React.Component {
             foodList: [ // hardcoded for now
                 { foodName: "Apple", foodCalories: 95 },                
                 { foodName: "Pizza", foodCalories: 285 }
+
             ]
         }
     }

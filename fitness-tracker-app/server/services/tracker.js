@@ -11,8 +11,8 @@ class FoodTracker{
 
     addFood(item){
         return this.itemRepo.create({
-            name: item.name,
-            price: item.price 
+            name: item.foodName,
+            calories: item.foodCalories
         });
     }
 
@@ -21,7 +21,7 @@ class FoodTracker{
     }
     
     getTotalCalories() {
-
+        // Not implemented 
     }
 
     
