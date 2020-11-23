@@ -9,7 +9,7 @@ class History extends React.Component{
     render() {
         return(
             <div className="history_page_wrapper" >
-            
+                under construction
             </div>
 
         )

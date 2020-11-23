@@ -1,9 +1,8 @@
 import React from 'react'
 import "./styles.css"
-import { Grid} from "@material-ui/core";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { PieChart } from 'react-minimal-pie-chart';
+import PieChart from './PieChart'
 //landing page of the app
 class DailyOverview extends React.Component{
     constructor(props) {
@@ -13,7 +12,10 @@ class DailyOverview extends React.Component{
         this.state = {
             calorieGoal: this.getCalorieGoal(),
             currentCalories: this.getCurrentCalories(),
-            caloriePCT: 0
+            caloriePCT: 0,
+            carbCaloriesPCT: this.getCarbCalories(),
+            proteinCaloriesPCT: this.getproteinCalories(),
+            fatCaloriesPCT: this.getfatCalories()
         }
     
     }
@@ -22,7 +24,18 @@ class DailyOverview extends React.Component{
             caloriePCT: Number(((this.state.currentCalories/this.state.calorieGoal)*100).toFixed(1)) 
         })
     }
-
+    getfatCalories = () => {
+        // TODO get fat calories from backend user and calculate percentage
+        return 90
+    }
+    getCarbCalories = () => {
+        // TODO get carb calories from backend user and calculate percentage
+        return 5
+    }
+    getproteinCalories = () => {
+        // TODO get protein calories from backend user and calculate percentage
+        return 5
+    }
     getCurrentCalories = () => {
         // TODO get current calories from backend
         return 2900
@@ -35,11 +48,13 @@ class DailyOverview extends React.Component{
 
     render() {
         const {caloriePCT, currentCalories, calorieGoal} = this.state
-        console.log(this.state.calorieGoal)
+
         return(
             <div className="daily_overview_page_wrapper">
                 <div className='progress_components_wrapper'>
-                    <h1>Calorie Goal: {calorieGoal}</h1>
+                    <div className='calorie_breakdown_title_wrapper'>
+                        <span className='calorie_breakdown_title_text'> Calorie Goal: {calorieGoal} </span>
+                    </div>
                     {caloriePCT > 100 &&
                         <CircularProgressbar
                         value={caloriePCT - 100}
@@ -112,23 +127,25 @@ class DailyOverview extends React.Component{
                         </div>
                     </div>
                 </div>
-                {/* <div>
-                    <h1> Calories % Consumed Today: </h1>
-                    <div className="CaloriesProgressBar">
-
-                        <PieChart
-                            data={[
-                            { title: 'One', value: 10, color: '#E38627' },
-                            { title: 'Two', value: 15, color: '#C13C37' },
-                            { title: 'Three', value: 20, color: '#6A2135' },
-                        ]}
-                        />
+                <div className='calorie_contents_components_wrapper'>   
+                    <div className='calorie_breakdown_title_wrapper'>
+                        <span className='calorie_breakdown_title_text'> Calorie Breakdown </span>
                     </div>
-                </div> */}
+                   
+                    <div className="calorie_breakdown_wrapper">
+                        
+                    </div>
+                    <PieChart   
+                        appstate = {this.state}
+                    />
+                       
+                    
+                   
+                </div>
             </div>
         )
 
     }
-}
+} 
 
 export default DailyOverview
