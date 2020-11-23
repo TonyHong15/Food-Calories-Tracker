@@ -15,7 +15,11 @@ class DailyOverview extends React.Component{
             caloriePCT: 0,
             carbCaloriesPCT: this.getCarbCalories(),
             proteinCaloriesPCT: this.getproteinCalories(),
-            fatCaloriesPCT: this.getfatCalories()
+            fatCaloriesPCT: this.getfatCalories(),
+            carbCaloriesPCTGoal: this.getCarbCaloriesGoal(),
+            fatCaloriesPCTGoal: this.getfatCaloriesGoal(),
+            proteinCaloriesPCTGoal: this.getproteinCaloriesGoal(),
+
         }
     
     }
@@ -27,6 +31,18 @@ class DailyOverview extends React.Component{
     getfatCalories = () => {
         // TODO get fat calories from backend user and calculate percentage
         return 90
+    }
+    getCarbCaloriesGoal = () => {
+        // TODO get fat calories from backend user and calculate percentage
+        return 30
+    }
+    getfatCaloriesGoal = () => {
+        // TODO get fat calories from backend user and calculate percentage
+        return 30
+    }
+    getproteinCaloriesGoal = () => {
+        // TODO get fat calories from backend user and calculate percentage
+        return 40
     }
     getCarbCalories = () => {
         // TODO get carb calories from backend user and calculate percentage
@@ -47,7 +63,7 @@ class DailyOverview extends React.Component{
     }
 
     render() {
-        const {caloriePCT, currentCalories, calorieGoal} = this.state
+        const {caloriePCT, currentCalories, calorieGoal, fatCaloriesPCT, carbCaloriesPCT, proteinCaloriesPCT, proteinCaloriesPCTGoal, fatCaloriesPCTGoal, carbCaloriesPCTGoal} = this.state
 
         return(
             <div className="daily_overview_page_wrapper">
@@ -133,7 +149,56 @@ class DailyOverview extends React.Component{
                     </div>
                    
                     <div className="calorie_breakdown_wrapper">
-                        
+                        <table className="calorie_breakdown_table">
+                            <tbody>
+                                <tr>
+                                    <th>
+                                    </th>
+                                    <th>
+                                        Total
+                                    </th>
+                                    <th>
+                                        Goal
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div className="carbs_rectangle"></div>
+                                        <span><strong>Carbohydrate</strong></span>
+                                    </td>
+                                    <td>
+                                        <strong>{carbCaloriesPCT}%</strong>
+                                    </td>
+                                    <td>
+                                        <strong>{carbCaloriesPCTGoal}%</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div className="fat_rectangle"></div>
+                                        <span><strong>Fat</strong></span>
+                                    </td>
+                                    <td>
+                                        <strong>{fatCaloriesPCT}%</strong>
+                                    </td>
+                                    <td>
+                                        <strong>{fatCaloriesPCTGoal}%</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div className="protein_rectangle"></div>
+                                        <span><strong>Protein</strong></span>                                       
+                                    </td>
+                                    <td>
+                                        <strong>{proteinCaloriesPCT}%</strong>
+                                    </td>
+                                    <td>
+                                        <strong>{proteinCaloriesPCTGoal}%</strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <PieChart   
                         appstate = {this.state}

@@ -99,9 +99,13 @@
 }
 .calorie_breakdown_wrapper{
     position: absolute;
-    width: 50%;
+    margin: 22.5%;
+    margin-top: 27.5%;
+    border-radius: 10%;
+    width: 55%;
     height: 50%;
-    z-index: 100;
+    text-align: center;
+    background-color: rgb(240,240,240);
 }
 .calorie_breakdown_title_wrapper{
     position: absolute;
@@ -111,4 +115,44 @@
     height: 50%;
     font-weight: 800;
     font-size: 2rem;
+}
+table {
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+table, th, td{
+    position: relative;
+}
+.calorie_breakdown_table{
+    position: absolute;
+    width: 95%;
+    height: 60%;
+    margin: 15%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    font-size: 1.5rem;
+}
+.carbs_rectangle {
+    display: inline-block;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+    background: green;
+}
+.fat_rectangle {
+    display: inline-block;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+    background: orange;
+}
+.protein_rectangle {
+    display: inline-block;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+    background: brown;
 }
