@@ -35,7 +35,7 @@ List **process-related** (i.e. team organization and how you work) decisions tha
 
 #### Q3. Planned changes
 
-- With the start of any web application, a large of amount of frontend functionality is required to be implemented. As we move forward with the rest of the features, we predict that more work will be need to be done on the backend. For this reason we will make sure to have some of the team member reorganize roles from time to time to stay on track with our timelines.
+- With the start of any web application, a large of amount of frontend functionality is required to be implemented. As we move forward with the rest of the features, we predict that more work will be need to be done on the backend. For this reason we will make sure to have some of the team members reorganize roles from time to time to stay on track with our timelines.
 
 
 ## Product - Review
