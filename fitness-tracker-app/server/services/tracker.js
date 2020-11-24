@@ -6,13 +6,13 @@ class FoodTracker{
     }
 
     getAllFood(){
-        return this.itemRepo.find({});
+        return this.itemRepo.find({cond});
     }
 
     addFood(item){
         return this.itemRepo.create({
-            name: item.foodName,
-            calories: item.foodCalories
+            foodName: item.foodName,
+            foodCalories: item.foodCalories
         });
     }
 
@@ -20,8 +20,16 @@ class FoodTracker{
         return this.itemRepo.deleteOne({_id: uid});
     }
     
-    getTotalCalories() {
-        // Not implemented 
+    getTotalCalories(cart) {
+        return this.itemRepo.find({_id: { $in: Object.keys(cart)}})
+            .then(items => items.reduce((result, item) => {
+                acc.cart[item._id] = {
+                    foodName : item.foodName,
+                    foodCalories : item.foodCalories
+                };
+                result += item.foodCalories;
+                return result;
+            }))
     }
 
     

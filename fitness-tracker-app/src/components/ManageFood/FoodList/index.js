@@ -1,5 +1,6 @@
 import React from 'react'
 import "./styles.css"
+import {loadFood} from "../../../api"
 
 /**
 *
@@ -13,7 +14,7 @@ class FoodList extends React.Component {
             foodList: [ // hardcoded for now
                 { foodName: "Apple", foodCalories: 95 },                
                 { foodName: "Pizza", foodCalories: 285 }
-
+                 // loadFood()
             ]
         }
     }

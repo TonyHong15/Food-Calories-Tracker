@@ -1,22 +1,22 @@
 "use strict";
 
-const{ Item } = require("./item");
+const{ ItemModel } = require("./item");
 
 class ItemRepo {
     find(cond) {
-        return Item.find(cond).exec();
+        return ItemModel.find(cond).exec();
     }
 
     create(obj) {
-        return new Item(obj).save();
+        return new ItemModel(obj).save();
     }
 
     deleteOne(cond) {
-        return Item.deleteOne(cond).exec();
+        return ItemModel.deleteOne(cond).exec();
     }
 
     updateOne(cond, update) {
-        return Item.updateOne(cond, update).exec();
+        return ItemModel.updateOne(cond, update).exec();
     }
 }
 

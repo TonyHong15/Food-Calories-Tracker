@@ -3,7 +3,8 @@ import "./styles.css"
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { Grid, TextField, Button } from "@material-ui/core";
-import FoodTracker from '../../../../server/services/tracker';
+import { loadFood, calculateCalories} from "../../api"
+// import FoodTracker from '../../../../server/services/tracker';
 
 /**
 *
@@ -26,9 +27,11 @@ class Calories extends React.Component {
 
     getCurrentCalories() {
         // TODO get today's food from backend
-        FoodTracker.getAllFood()
-        // TODO calculate total calories
+        food = loadFood()
 
+        
+        // TODO calculate total calories
+        calculateCalories(food) 
         
     }
 
@@ -50,7 +53,7 @@ class Calories extends React.Component {
             })
         }
         // TODO: Call the endpoint to the backend here
-        // goal of calories not implemented in backend yet 
+        // user profile not set up yet 
 
     }
 

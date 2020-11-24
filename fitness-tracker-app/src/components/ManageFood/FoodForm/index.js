@@ -1,8 +1,8 @@
 import React from 'react'
 import "./styles.css"
 import { TextField, Button } from '@material-ui/core';
-
-import FoodTracker from '../../../../server/services/tracker';
+import { loadFood, addFood } from "../../../api"
+// import FoodTracker from '../../../../server/services/tracker';
 
 /**
 *
@@ -35,17 +35,17 @@ class FoodForm extends React.Component {
     }
 
     submitNewFood(e) {
-        const newFood = {
-            foodName: this.state.foodName,
-            foodCalories: this.state.foodCalories
-        }
+        
+        const foodName = this.state.foodName 
+        const foodCalories = this.state.foodCalories
+        
         this.setState({
             foodName: '',
             foodCalories: 0
         });
         
         // TODO: Call the endpoint to the backend here
-        FoodTracker.addFood(newFood) 
+        addFood(foodName, foodCalories)
     }
 
     render() {
