@@ -58,11 +58,11 @@ app.post("/api/total_calories", (req, res) => {
         });
 });
 
-app.use(express.static(__dirname + "/client/build"))
+app.use(express.static(path.join(__dirname + "/client/build")))
 
 //serve react app
 app.get("*", (req, res) => {
-    res.sendFile(__dirname + "client/build/index.html")
+    res.sendFile(path.resolve(__dirname + "client/build/index.html"))
 })
 
 module.exports = app;
