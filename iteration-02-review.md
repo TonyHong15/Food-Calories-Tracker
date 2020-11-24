@@ -7,8 +7,8 @@
 
 ## Iteration XX - Review & Retrospect
 
- * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
- * Where: PHYSICAL LOCATION AND/OR ONLINE
+ * When: 23rd November 2020
+ * Where: Online voice call over Discord
 
 ## Process - Reflection
 
