@@ -22,6 +22,8 @@ List **process-related** (i.e. team organization and how you work) decisions tha
  * Ordered from most to least important.
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
  * Feel free to refer/link to process artifact(s).
+ 
+ - As a part
 
 #### Q2. Decisions that did not turn out as well as we hoped
 
@@ -32,6 +34,7 @@ List **process-related** (i.e. team organization and how you work) decisions tha
  * Explain why (i.e. give a supporting argument) you consider a decision to be unsuccessful
  * Feel free to refer/link to process artifact(s).
 
+- The members working on the frontend spent large amounts of time working on features at the same while communicating over a voice call. This proved to be an effective strategy as it allowed the members to quickly plan out views without having work overlap.
 
 #### Q3. Planned changes
 
