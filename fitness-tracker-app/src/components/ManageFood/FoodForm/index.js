@@ -53,12 +53,15 @@ class FoodForm extends React.Component {
 
         if (request.status === 200) {
             var food_results = (JSON.parse(request.responseText));
+            
         }  
 
 
 
         var foodOptions = []
-        for (var i = 0; i < 20; i++){
+        var len = Math.min(20, food_results["foods"].length)
+
+        for (var i = 0; i < len; i++){
             var f = {}
             
             f["fdcId"] = food_results["foods"][i]["fdcId"]
