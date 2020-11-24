@@ -6,7 +6,7 @@ class FoodTracker{
     }
 
     getAllFood(){
-        return this.itemRepo.find({cond});
+        return this.itemRepo.find({});
     }
 
     addFood(item){
