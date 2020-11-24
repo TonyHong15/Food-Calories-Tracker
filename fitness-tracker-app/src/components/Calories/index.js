@@ -121,6 +121,7 @@ class Calories extends React.Component {
                             Add Calorie Goal
                         </Button>
                         {/* ------------------------------------------------------------- */}
+                        <h3>Add Detailed Goals (adding up to calories goal):</h3>
                         <h3>Daily Carbohydrates:</h3> 
                         <TextField
                             value={this.state.carbohydrateGoal}
