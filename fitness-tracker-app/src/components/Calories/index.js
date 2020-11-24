@@ -13,14 +13,28 @@ class Calories extends React.Component {
         super(props);
         
         this.getCurrentCalories = this.getCurrentCalories(this)
-        this.submiteCaloriesGoal = this.submiteCaloriesGoal.bind(this)
+        this.submitCaloriesGoal = this.submitCaloriesGoal.bind(this)
+
+        this.getCurrentCarbohydrates = this.getCurrentCarbohydrates(this)
+        this.getCurrentFats = this.getCurrentFats(this)
+        this.getCurrentProteins = this.getCurrentProteins(this)
+        this.submitBrokenDownGoal = this.submitBrokenDownGoal.bind(this)
 
         this.state = {
             caloriesGoal: 0,
             totalCalories: this.getCurrentCalories,
-            currentCaloriesPCT: this.submiteCaloriesGoal
+            carbohydrateGoal: 0,
+            totalCarbohydrates: this.getCurrentCarbohydrates,
+            fatGoal: 0,
+            totalFats: this.getCurrentFats,
+            proteinGoal: 0,
+            totalProtein: this.getCurrentProteins,          
+            currentCaloriesPCT: this.submitCaloriesGoal
         }
         this.textFieldCaloriesGoal = this.textFieldCaloriesGoal.bind(this)
+        this.textFieldCarbohydratesGoal = this.textFieldCarbohydratesGoal.bind(this)
+        this.textFieldFatsGoal = this.textFieldFatsGoal.bind(this)
+        this.textFieldProteinsGoal = this.textFieldProteinsGoal.bind(this)
     }
 
     getCurrentCalories() {
@@ -28,14 +42,12 @@ class Calories extends React.Component {
         // TODO calculate total calories
         return 0
     }
-
     textFieldCaloriesGoal(e) {
         this.setState({
             caloriesGoal: e.target.value
         });
     }
-
-    submiteCaloriesGoal(e) {
+    submitCaloriesGoal(e) {
         if (this.caloriesGoal == 0) {
             this.setState({
                 currentCaloriesPCT: 100
@@ -49,6 +61,40 @@ class Calories extends React.Component {
         // TODO: Call the endpoint to the backend here
     }
 
+
+    getCurrentCarbohydrates() {
+        // TODO get today's foods from backend
+        return 0
+    }
+    textFieldCarbohydratesGoal(e) {
+        this.setState({
+            carbohydrateGoal: e.target.value
+        });
+    }
+
+    getCurrentFats() {
+        // TODO get today's foods from backend
+        return 0
+    }
+    textFieldFatsGoal(e) {
+        this.setState({
+            fatGoal: e.target.value
+        });
+    }
+
+    getCurrentProteins() {
+        // TODO get today's foods from backend
+        return 0
+    }
+    textFieldProteinsGoal(e) {
+        this.setState({
+            proteinGoal: e.target.value
+        });
+    }
+    submitBrokenDownGoal(e) {
+        // TODO: Call the endpoint to the backend here to submit carbs, fat, and protein goals
+    }
+
     render() {
         const caloriePCT = 60; // TODO 
         return (
@@ -56,7 +102,9 @@ class Calories extends React.Component {
                 <Grid container>
                     <Grid item xs={1}></Grid>
                     <Grid item xs={3}>
-                        <h1>Your Calories Goal For Today:</h1>
+                        <h1>Your Goal For Today:</h1>
+                        {/* ------------------------------------------------------------- */}
+                        <h3>Daily Calories:</h3>
                         <TextField
                             value={this.state.caloriesGoal}
                             onChange={this.textFieldCaloriesGoal}
@@ -67,10 +115,42 @@ class Calories extends React.Component {
                         <Button
                             variant="contained"
                             color="default"
-                            onClick={this.submiteCaloriesGoal}
+                            onClick={this.submitCaloriesGoal}
                             style={{ width: '100%' }}
                         >
-                            Add Goal
+                            Add Calorie Goal
+                        </Button>
+                        {/* ------------------------------------------------------------- */}
+                        <h3>Daily Carbohydrates:</h3> 
+                        <TextField
+                            value={this.state.carbohydrateGoal}
+                            onChange={this.textFieldCarbohydratesGoal}
+                            style={{ width: '100%' }}
+                            type="number"
+                        />
+                        {/* ------------------------------------------------------------- */}
+                        <h3>Daily Fat:</h3>
+                        <TextField
+                            value={this.state.fatGoal}
+                            onChange={this.textFieldFatsGoal}
+                            style={{ width: '100%' }}
+                            type="number"
+                        />
+                        {/* ------------------------------------------------------------- */}
+                        <h3>Daily Protein:</h3>
+                        <TextField
+                            value={this.state.proteinGoal}
+                            onChange={this.textFieldProteinsGoal}
+                            style={{ width: '100%' }}
+                            type="number"
+                        />
+                        <Button
+                            variant="contained"
+                            color="default"
+                            onClick={this.submitBrokenDownGoal}
+                            style={{ width: '100%' }}
+                        >
+                            Add Detailed Goals
                         </Button>
                     </Grid>
                     <Grid item xs={2}></Grid>
