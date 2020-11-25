@@ -38,7 +38,7 @@ List **process-related** (i.e. team organization and how you work) decisions tha
 
 - Our team's plan to work on a partner project was cancelled after complications arose in the planning process with the partners and course faculty. Since this change was made late in the semester, it affected the time constraints for our current project. We feel that we should've met with the partner company more often. This way any conflicts would have arose earlier and allowed us to progress with the project at a faster rate.
 
-- As we found ourselves short on time, our team felt the pressure to push out features as quickly as possible. There were a few times when members of the team were out of synch with the content of each other's work. Once again, more communication could have helped here. Although we were short on time, it would have been helpful to squeeze in extra team meetings to have everyone ben on the same page at all times.
+- As we found ourselves short on time, our team felt the pressure to push out features as quickly as possible. There were a few times when members of the team were out of synch with the content of each other's work. Once again, more communication could have helped here. Although we were short on time, it would have been helpful to squeeze in extra team meetings to have everyone be on the same page at all times.
 
 #### Q3. Planned changes
 
