@@ -4,7 +4,8 @@ team-project-24 created by GitHub Classroom
 Fitness tracker app:
   The project we decide to create calculates users' total daily calories and how close they are from reaching their goal by keeping track of the foods they consume. 
 
-# YOUR PRODUCT/TEAM NAME
+# YOUR PRODUCT/TEAM NAME 
+MyDiet
 
 > _Note:_ This document is intended to be relatively short. Be concise and precise. Assume the reader has no prior knowledge of your application and is non-technical. 
 
@@ -12,6 +13,9 @@ Fitness tracker app:
  * Provide a high-level description of your application and it's value from an end-user's perspective
  * What is the problem you're trying to solve?
  * Is there any context required to understand **why** the application solves this problem?
+
+ Answer : The motivation behind our web application is to enable users to take control of their diet. Our web app allows users to keep track of the foods they’re eating and logs the amount of calories they consume on a daily basis. Our web app will also inform users on their progress for the day so they can keep themselves in check. We came up with these ideas because people tend to overeat or undereat based on their requirements; as they often don't have the proper tools to keep track of their intake. 
+
 
 ## Key Features
  * Described the key features in the application that the user can access
