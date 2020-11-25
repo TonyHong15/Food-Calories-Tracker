@@ -24,6 +24,8 @@ List **process-related** (i.e. team organization and how you work) decisions tha
  * Feel free to refer/link to process artifact(s).
  
  - The members working on the frontend spent large amounts of time working on features at the same while communicating over a voice call. This proved to be an effective strategy as it allowed the members to quickly plan out views without having work overlap.
+ 
+ - Given the time constraints our team was dealt with, the team did a great job at defining a realistic scope for deliverable 2. Although we would have loved to develop a project with countless features, one of the big goals of the course is to create a working application. Rather than overpromising on our work, we knew our limits and aimed for features that we could implement successfully and in a timely fashion
 
 #### Q2. Decisions that did not turn out as well as we hoped
 
