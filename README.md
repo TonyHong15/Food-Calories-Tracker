@@ -87,3 +87,5 @@ Describe your Git / GitHub workflow. Essentially, we want to understand how your
  * What type of license will you apply to your codebase?
  * What affect does it have on the development and use of your codebase?
  * Why did you or your partner make this choice?
+
+Answer: We will apply the MIT license to our software. We made this decision based on the open source guide. We used npm libraries and thus we have dependencies for our project. The NPM libraries has permissive license for us to use and one of the most popular license for npm is the MIT license. This means that people have the permission to use privately, free of distribution, modification, commercial use under license and copyright notice. There is no liabiltiy and warranty provided for the software. 
