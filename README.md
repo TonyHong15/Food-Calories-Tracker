@@ -6,6 +6,7 @@ Fitness tracker app:
 
 # YOUR PRODUCT/TEAM NAME 
 MyDiet
+Deployed App: https://diet-app-d2.herokuapp.com/
 
 
 ## Description 
