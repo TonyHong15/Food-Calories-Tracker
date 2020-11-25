@@ -75,6 +75,11 @@ Describe your Git / GitHub workflow. Essentially, we want to understand how your
  * What deployment tool(s) are you using and how
  * Don't forget to **briefly explain why** you chose this workflow or particular aspects of it!
 
+ Answer:
+ We have three branches, master, client and server. Team members communicate and push their code to the corresponding branches and create a pull request when they want to merge to master branch. Woo-jin Park is responsible for reviewing pull-requests and Tony Hong is responsible for merging them. The approach will minimize the conflicts and keep the master branch clean and organized. 
+ Once all the code on different branches are finalized, they are all merged into master branch. From there the application is deployed onto Heroku, we can checkout the application by clicking on the deployment under environments on Github. 
+
+
  ## Licenses 
 
  Keep this section as brief as possible. You may read this [Github article](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/licensing-a-repository) for a start.
