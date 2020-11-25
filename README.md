@@ -22,6 +22,22 @@ MyDiet
  * Provide a breakdown or detail for each feature that is most appropriate for your application
  * This section will be used to assess the value of the features built
 
+ Answer : 
+My Dashboard
+Displays the calorie goal user wants to achieve for the day.
+Displays the calorie breakdown of the user.
+
+Manage Food
+Add food that they have consumed
+Search food to get information about the food (ie calorie, fat, etc)
+View all the food user ate in one day with the information about the food
+
+Calculate Calories
+View calories consumed in one day in a progress bar
+Add calorie goal for the day
+
+
+
 ## Instructions
  * Clear instructions for how to use the application from the end-user's perspective
  * How do you access it? Are accounts pre-created or does a user register? Where do you start? etc. 
