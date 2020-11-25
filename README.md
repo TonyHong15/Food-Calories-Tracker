@@ -22,7 +22,7 @@ MyDiet
  * Provide a breakdown or detail for each feature that is most appropriate for your application
  * This section will be used to assess the value of the features built
 
- Answer : 
+Answer : 
 My Dashboard
 Displays the calorie goal user wants to achieve for the day.
 Displays the calorie breakdown of the user.
@@ -43,10 +43,27 @@ Add calorie goal for the day
  * How do you access it? Are accounts pre-created or does a user register? Where do you start? etc. 
  * Provide clear steps for using each feature described above
  * This section is critical to testing your application and must be done carefully and thoughtfully
+
+ Answer: 
+ The users are greeted with a login page when they enter the site. They need to create an account for the very first time. As of D2, user can enter any username and password to login.
+
+ MyDashboard feature:  
+ The user dashboard is still under construction, but after user login they can see their status of calorie consumption for the day. On the right side there is a calorie breakdown, user can compare carbohydrates, protein, fat consumption with their daily goal. The current dashboards are sample numbers, as we continue these numbers will be generated based on user profile. 
+
+ Manage Food feature: 
+ Click on the "Manage Food" on the left panel. You can search up the food that you want to add by clicking " SEARCH FOOD". Then a clickable dropdown bar will be displayed, click on the down arrow to view and select foods. Note that user can enter their own food name and calories by typing them in and click " ADD FOOD". The Food list on the right is hardcoded for now. 
+
+ Calculate Calories: 
+ Click on the "Calculate Calories" on the left panel. User can enter their daily calories goal and specify details on carbohydrates, fat and protein. Users can check their progess on the right side. As for now this value is hardcoded. 
+
  
  ## Development requirements
  * If a developer were to set this up on their machine or a remote server, what are the technical requirements (e.g. OS, libraries, etc.)?
  * Briefly describe instructions for setting up and running the application (think a true README).
+
+ Answer: 
+ If developer want to set things up locally, they should have npm and Node.JS installed on your machine locally. The DB is located on the atlas cloud , you don’t need to set up DB locally. In the fitness-tracker-app directory, type in npm install and npm start in the terminal. You will be directed to localhost3000. 
+
  
  ## Deployment and Github Workflow
 
