@@ -6,7 +6,7 @@
  * When: 23rd November 2020
  * Where: Online voice call over Discord
 
-## Process - Reflection
+## Process - Reflection 
 
 
 #### Q1. Decisions that turned out well
@@ -19,7 +19,7 @@ List **process-related** (i.e. team organization and how you work) decisions tha
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
  * Feel free to refer/link to process artifact(s).
  
- - The members working on the frontend spent large amounts of time working on features at the same while communicating over a voice call. This proved to be an effective strategy as it allowed the members to quickly plan out views without having work overlap.
+ - The members working on the frontend spent large amounts of time working on features at the same time while communicating over a voice call. This proved to be an effective strategy as it allowed the members to quickly plan out views without having work overlap.
  
  - Given the time constraints our team was dealt with, the team did a great job at defining a realistic scope for deliverable 2. Although we would have loved to develop a project with countless features, one of the big goals of the course is to create a working application. Rather than overpromising on our work, we knew our limits and aimed for features that we could implement successfully and in a timely fashion
 
