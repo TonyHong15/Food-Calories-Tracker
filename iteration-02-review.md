@@ -46,10 +46,5 @@ List **process-related** (i.e. team organization and how you work) decisions tha
 ## Product - Review
 
 #### Q4. How was your product demo?
- * How did you prepare your demo?
- * What did you manage to demo to your partner?
- * Did your partner accept the features?
- * Were there change requests?
- * What did you learn from the demo from either a process or product perspective?
- * *This section will be marked very leniently so keep it brief and just make sure the points are addressed*
-
+ 
+ As we are no longer with a partner company anymore we do not have a project demo at the moment. You can expect to hear the details of our project demo in the future in deliverable 3.
