@@ -122,8 +122,8 @@ class DailyOverview extends React.Component{
             .catch(error => {
                 console.log(error);
             });
+        
     }
-
     render() {
         const {caloriePCT, currentCalories, calorieGoal, fatCaloriesPCT, carbCaloriesPCT, proteinCaloriesPCT, proteinCaloriesPCTGoal, fatCaloriesPCTGoal, carbCaloriesPCTGoal} = this.state
 
