@@ -178,7 +178,10 @@ app.post('/api/addfood/:id', async (req, res) => {
 		} else {
             const food = new Food({
                 foodName: req.body.foodName,
-                foodCalories: req.body.foodCalories
+                foodCalories: req.body.foodCalories,
+                carbPCT: 33, //HARDCODED FOR NOW
+                fatPCT:34, //CHANGE WHEN WE ADD THE SUBCATEGORIES
+                proteinPCT: 33
             })
 			user.foods.push(food)
 			const updated = await user.save()	
@@ -232,12 +235,12 @@ app.post('/api/addfood/:id', async (req, res) => {
 // });
 
 //static pages
-app.use(express.static(path.join(__dirname + "/client/build")))
+// app.use(express.static(path.join(__dirname + "/client/build")))
 
 //serve react app
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname + "client/build/index.html"))
-})
+// app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname + "client/build/index.html"))
+// })
 
 
 

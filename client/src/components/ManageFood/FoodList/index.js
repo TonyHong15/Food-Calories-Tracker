@@ -9,21 +9,12 @@ class FoodList extends React.Component {
     constructor(props) {
         super(props)
         this.app = props.app;
-        // TODO call the backend here to initialize foodList
-        this.state = {
-            foodList: [ // hardcoded for now
-                { foodName: "Apple", foodCalories: 95 },                
-                { foodName: "Pizza", foodCalories: 285 }
-                 // loadFood()
-            ]
-        }
-    }
-
+    } 
     render() {
         return (
             <div style={{overflow: "scroll", overflow: "hidden"}}>
                 <h1>Today's Food List: </h1><br /><br />
-                {this.state.foodList.map((foodItem) => {
+                {this.props.foodList.foodList.map((foodItem) => {
                     return (
                         <div key={foodItem.foodName} >
                             <div style={{ backgroundColor: "Bisque" }}>

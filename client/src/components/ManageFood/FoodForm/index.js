@@ -105,18 +105,39 @@ class FoodForm extends React.Component {
         });
     }
 
-    submitNewFood(e) {
-        
-        const foodName = this.state.foodName 
-        const foodCalories = this.state.foodCalories
-        
+
+
+    //ADDING A CUSTOM FOOD TO USER  (CONNECTED TO BACKEND)
+    submitNewFood(e) {       
+        console.log(this.props.appState.currentUser)
+        const request = new Request('/api/addFood/'+ this.props.appState.currentUser, {
+            method: "post",
+            body: JSON.stringify(this.state),
+            headers: {
+                Accept: "application/json, text/plain, */*",
+                "Content-Type": "application/json"
+            }
+        });
+        // Send the request with fetch()
+        fetch(request)
+            .then(res => {
+                console.log(res.status)
+                if (res.status === 200) {
+                    return res.json();
+                }
+            }) .then(json => {
+                console.log(json.foods)
+                this.props.foodList.foodList = json.foods
+            })
+            .catch(error => {
+                console.log(error);
+            });
+            
         this.setState({
             foodName: '',
             foodCalories: 0
         });
-        
-        // TODO: Call the endpoint to the backend here
-        addFood(foodName, foodCalories)
+
     }
 
     render() {
