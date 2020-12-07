@@ -9,6 +9,18 @@ const itemSchema = new mongoose.Schema({
     foodCalories: {
         type: Number,
         require: true
+    },
+    carbPCT: {
+        type: Number,
+        require: true
+    },
+    fatPCT: {
+        type: Number,
+        require: true
+    },
+    proteinPCT: {
+        type: Number,
+        require: true
     }
 });
 
