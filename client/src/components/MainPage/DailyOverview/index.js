@@ -24,8 +24,7 @@ class DailyOverview extends React.Component{
     
     }
     componentDidMount(){
-        this.getCalorieGoal()
-        this.getCurrentCalories()
+        this.getCurrentandGoal()
         this.setState({
             carbCaloriesPCT: this.getCarbCalories(),
             proteinCaloriesPCT: this.getproteinCalories(),
@@ -34,9 +33,6 @@ class DailyOverview extends React.Component{
             fatCaloriesPCTGoal: this.getfatCaloriesGoal(),
             proteinCaloriesPCTGoal: this.getproteinCaloriesGoal(),
 
-        })
-        this.setState({
-            caloriePCT: Number(((this.state.currentCalories/this.state.calorieGoal)*100).toFixed(1)) 
         })
     }
     getfatCalories = () => {
@@ -64,7 +60,7 @@ class DailyOverview extends React.Component{
         // TODO get protein calories from backend user and calculate percentage
         return 5
     }
-    getCurrentCalories = () => {
+    getCurrentandGoal = () => {
             console.log(this.props.appState.currentUser)
             const request = new Request('/api/users/'+ this.props.appState.currentUser, {
                 method: "get",
@@ -87,9 +83,12 @@ class DailyOverview extends React.Component{
                         return total + food.foodCalories
                     }, 0)
                     console.log(consumed)
-                    this.setState(
-                        {currentCalories: consumed}
-                    )
+                    const caloriePCT = Number(((consumed/json.goal)*100).toFixed(1)) 
+                    this.setState({
+                        currentCalories: consumed,
+                        calorieGoal: json.goal,
+                        caloriePCT: caloriePCT
+                    })
                 })
                 .catch(error => {
                     console.log(error);
@@ -97,33 +96,6 @@ class DailyOverview extends React.Component{
             
     }
 
-    getCalorieGoal = () => {
-        const request = new Request('/api/users/'+ this.props.appState.currentUser, {
-            method: "get",
-            headers: {
-                Accept: "application/json, text/plain, */*",
-                "Content-Type": "application/json"
-            }
-        });
-        // Send the request with fetch()
-        fetch(request)
-            .then(res => {
-                console.log(res.status)
-                if (res.status === 200) {
-                    return res.json();
-                }
-            })
-            .then(json => {
-                console.log(json.goal)
-                this.setState(
-                    {calorieGoal: json.goal}
-                )
-            })
-            .catch(error => {
-                console.log(error);
-            });
-        
-    }
     render() {
         const {caloriePCT, currentCalories, calorieGoal, fatCaloriesPCT, carbCaloriesPCT, proteinCaloriesPCT, proteinCaloriesPCTGoal, fatCaloriesPCTGoal, carbCaloriesPCTGoal} = this.state
 
