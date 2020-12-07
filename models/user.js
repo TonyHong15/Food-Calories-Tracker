@@ -23,6 +23,10 @@ const UserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		minlength: 1
+	},
+	goal: {
+		type: Number,
+		required: true
     },
     foods: []
 })

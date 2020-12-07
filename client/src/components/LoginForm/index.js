@@ -51,7 +51,7 @@ class LoginForm extends React.Component {
                     <Button 
                         variant="contained"
                         color="primary"
-                        onClick={() => handleLogin(this)}
+                        onClick={() => handleLogin(this, this.props.appState)}
                         fullWidth
                     >   
                         <span className="login_submit_text"> Log In </span>

@@ -29,11 +29,11 @@ class App extends React.Component{
     switchComponents() {
         switch(this.state.selectedFunction) {
             case 'calculate_calories':
-                return <Calories/>
+                return <Calories appState={this.props.appState}/>
             case 'user_info':
-                return <MainPage/>
+                return <MainPage appState={this.props.appState}/>
             case 'manage_food':
-                return <ManageFood/>
+                return <ManageFood appState={this.props.appState}/>
         }
     }
 
@@ -41,7 +41,7 @@ class App extends React.Component{
         const mainpage = this.switchComponents();
         return (
             <div>
-                <SideBar className="SideBar" selectFunctionality={this.selectFunctionality.bind(this)} />
+                <SideBar className="SideBar" appState={this.props.appState} selectFunctionality={this.selectFunctionality.bind(this)} />
                 {mainpage}
             </div>
 

@@ -51,6 +51,7 @@ app.post('/api/register', async (req, res) => {
         password: req.body.password,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        goal: 3000
     })
 
     try {
@@ -67,7 +68,7 @@ app.post('/api/register', async (req, res) => {
 })
 
 // A route to login
-app.get("/api/login", async (req, res) => {
+app.post("/api/login", async (req, res) => {
     if (mongoose.connection.readyState != 1) {
 		log('Issue with mongoose connection')
 		res.status(500).send('Internal server error')
@@ -75,7 +76,7 @@ app.get("/api/login", async (req, res) => {
 	} 
     const username = req.body.username;
     const password = req.body.password;
-
+    log(username)
     try {
         const users = await User.find()
         const desired_user = users.filter(
@@ -85,8 +86,8 @@ app.get("/api/login", async (req, res) => {
             res.status(404).send("invalid login")
         }
         else{
-            res.status(200).send(desired_user)
-            log(desired_user)
+            res.status(200).send(desired_user[0])
+            log(desired_user[0])
         }
 	} catch(error) {
 		log(error)
@@ -110,6 +111,55 @@ app.get("/api/users", async (req, res) => {
 	}
 })
 
+//specific user
+app.get('/api/users/:id', async (req, res) => {
+    const id = req.params.id
+    
+	if (mongoose.connection.readyState != 1) {
+		log('Issue with mongoose connection')
+		res.status(500).send('Internal server error')
+		return;
+	}  
+
+	try {
+		const user = await User.findById(id)
+		if (!user) {
+			res.status(404).send('Resource not found')  
+		} else {
+			res.send(user)
+		}
+	} catch(error) {
+		log(error)
+		res.status(500).send('Internal Server Error') 
+	}
+
+})
+
+//setting calorie goal for specific user
+app.patch('/api/setgoal/:id', async (req, res) => {
+    const id = req.params.id
+    
+	if (mongoose.connection.readyState != 1) {
+		log('Issue with mongoose connection')
+		res.status(500).send('Internal server error')
+		return;
+	}  
+
+	try {
+		const user = await User.findById(id)
+		if (!user) {
+			res.status(404).send('Resource not found')  
+		} else {
+            user.goal = req.body.goal
+            const updated = await user.save()
+			res.send(updated)
+		}
+	} catch(error) {
+		log(error)
+		res.status(500).send('Internal Server Error') 
+	}
+
+})
 
 //add food to user
 app.post('/api/addfood/:id', async (req, res) => {
@@ -140,46 +190,46 @@ app.post('/api/addfood/:id', async (req, res) => {
 	}
 
 })
-app.get("/api/foods", (req, res) => {
-    if (mongoose.connection.readyState != 1) {
-		log('Issue with mongoose connection')
-		res.status(500).send('Internal server error')
-		return;
-	} 
-    tracker.getAllFood()
-        .then(foods => res.send(foods))
-        .catch(error => {
-            console.log(error);
-            res.status(400).send();
-        })
-});
+// app.get("/api/foods", (req, res) => {
+//     if (mongoose.connection.readyState != 1) {
+// 		log('Issue with mongoose connection')
+// 		res.status(500).send('Internal server error')
+// 		return;
+// 	} 
+//     tracker.getAllFood()
+//         .then(foods => res.send(foods))
+//         .catch(error => {
+//             console.log(error);
+//             res.status(400).send();
+//         })
+// });
 
-app.put("/api/food", (req, res) => {
-    tracker.addFood(req.body)
-        .then(_ => res.send())
-        .catch(error => {
-            console.log(error);
-            res.status(400).send();
-        });
-});
+// app.put("/api/food", (req, res) => {
+//     tracker.addFood(req.body)
+//         .then(_ => res.send())
+//         .catch(error => {
+//             console.log(error);
+//             res.status(400).send();
+//         });
+// });
 
-app.delete("/api/food", (req, res) => {
-    tracker.deleteFood(req.body.itemId)
-        .then(_ => res.send())
-        .catch(error => {
-            console.log(error);
-            res.status(400).send();
-        });
-});
+// app.delete("/api/food", (req, res) => {
+//     tracker.deleteFood(req.body.itemId)
+//         .then(_ => res.send())
+//         .catch(error => {
+//             console.log(error);
+//             res.status(400).send();
+//         });
+// });
 
-app.post("/api/total_calories", (req, res) => {
-    tracker.getTotalCalories(req.body)
-        .then(calories => res.send(calories))
-        .catch(error => {
-            console.log(error);
-            res.status(400).send();
-        });
-});
+// app.post("/api/total_calories", (req, res) => {
+//     tracker.getTotalCalories(req.body)
+//         .then(calories => res.send(calories))
+//         .catch(error => {
+//             console.log(error);
+//             res.status(400).send();
+//         });
+// });
 
 //static pages
 app.use(express.static(path.join(__dirname + "/client/build")))

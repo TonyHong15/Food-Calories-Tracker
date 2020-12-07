@@ -20,7 +20,7 @@ theme.typography.h3 = {
 };
 class LandingPage extends React.Component{
     constructor(props) {
-        super(props);
+        super(props)
     }
 
     render() {
@@ -34,7 +34,7 @@ class LandingPage extends React.Component{
                             <Typography variant="h3" fontWeight={900}>Have An Account?</Typography>
                         </ThemeProvider>
                         <div className="login_form_element">
-                            <LoginForm />
+                            <LoginForm appState={this.props.appState}/>
                         </div>
 
 

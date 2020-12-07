@@ -18,7 +18,7 @@ class RegisterForm extends React.Component {
         } = this.props;
         if (redirect){
             return(
-                <Redirect to={{pathname: '/App'}}/> 
+                <Redirect to={{pathname: '/'}}/> 
             )
         }
         return (

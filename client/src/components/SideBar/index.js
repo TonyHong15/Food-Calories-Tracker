@@ -39,8 +39,8 @@ class SideBar extends React.Component {
     };
 
     //log out function
-    logOut() {
-        //funtion called when log out
+    logOut = () =>{
+        this.props.appState.currentUser = null;
     }
 
     render() {
@@ -48,9 +48,9 @@ class SideBar extends React.Component {
         console.log(this.state.image_src)
         return (
             <div class="SideBar">
-                <img className="Side_Bar_Profile_Pic" src={this.state.image_src}/>
+                <img className="Side_Bar_Profile_Pic" src={this.state.image_src} />
             
-                <label for="profile_image_upload_button" class="profile_image_upload_button">
+                <label for="profile_image_upload_button" className="profile_image_upload_button">
                 </label>
             
                 <form className="profile_image_upload" action="image upload">

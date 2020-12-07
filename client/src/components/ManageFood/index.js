@@ -15,14 +15,15 @@ class ManageFood extends React.Component {
 
         return (
             <div className="ManageFoodBackground">
+            {console.log(this.props.appState.currentUser)}
             <Grid container className="requests-grid">
                 <Grid item xs={1}></Grid>
                 <Grid item xs={3}>
-                    {<FoodForm dashboard={this} app={app}/>}
+                    {<FoodForm appState={this.props.appState} dashboard={this} app={app}/>}
                 </Grid>
                 <Grid item xs={2}></Grid>
                 <Grid item xs={3}>
-                    {<FoodList app={app}/>}
+                    {<FoodList appState={this.props.appState} app={app}/>}
                 </Grid>
             </Grid>
             </div>
