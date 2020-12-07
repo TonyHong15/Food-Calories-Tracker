@@ -10,9 +10,23 @@ class DailyOverview extends React.Component{
         
 
         this.state = {
-            calorieGoal: this.getCalorieGoal(),
-            currentCalories: this.getCurrentCalories(),
+            calorieGoal: 0,
+            currentCalories: 0,
             caloriePCT: 0,
+            carbCaloriesPCT: 0,
+            proteinCaloriesPCT: 0,
+            fatCaloriesPCT: 0,
+            carbCaloriesPCTGoal: 0,
+            fatCaloriesPCTGoal: 0,
+            proteinCaloriesPCTGoal: 0,
+
+        }
+    
+    }
+    componentDidMount(){
+        this.getCalorieGoal()
+        this.getCurrentCalories()
+        this.setState({
             carbCaloriesPCT: this.getCarbCalories(),
             proteinCaloriesPCT: this.getproteinCalories(),
             fatCaloriesPCT: this.getfatCalories(),
@@ -20,16 +34,14 @@ class DailyOverview extends React.Component{
             fatCaloriesPCTGoal: this.getfatCaloriesGoal(),
             proteinCaloriesPCTGoal: this.getproteinCaloriesGoal(),
 
-        }
-    
-    }
-    componentDidMount(){
+        })
         this.setState({
             caloriePCT: Number(((this.state.currentCalories/this.state.calorieGoal)*100).toFixed(1)) 
         })
     }
     getfatCalories = () => {
         // TODO get fat calories from backend user and calculate percentage
+        
         return 90
     }
     getCarbCaloriesGoal = () => {
@@ -53,13 +65,63 @@ class DailyOverview extends React.Component{
         return 5
     }
     getCurrentCalories = () => {
-        // TODO get current calories from backend
-        return 2900
+            console.log(this.props.appState.currentUser)
+            const request = new Request('/api/users/'+ this.props.appState.currentUser, {
+                method: "get",
+                headers: {
+                    Accept: "application/json, text/plain, */*",
+                    "Content-Type": "application/json"
+                }
+            });
+            // Send the request with fetch()
+            fetch(request)
+                .then(res => {
+                    console.log(res.status)
+                    if (res.status === 200) {
+                        return res.json();
+                    }
+                })
+                .then(json => {
+                    console.log(json.foods)
+                    const consumed = json.foods.reduce((total, food) => {
+                        return total + food.foodCalories
+                    }, 0)
+                    console.log(consumed)
+                    this.setState(
+                        {currentCalories: consumed}
+                    )
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            
     }
 
     getCalorieGoal = () => {
-        // TODO get from user information in backend
-        return 3000
+        const request = new Request('/api/users/'+ this.props.appState.currentUser, {
+            method: "get",
+            headers: {
+                Accept: "application/json, text/plain, */*",
+                "Content-Type": "application/json"
+            }
+        });
+        // Send the request with fetch()
+        fetch(request)
+            .then(res => {
+                console.log(res.status)
+                if (res.status === 200) {
+                    return res.json();
+                }
+            })
+            .then(json => {
+                console.log(json.goal)
+                this.setState(
+                    {calorieGoal: json.goal}
+                )
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     render() {

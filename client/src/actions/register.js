@@ -3,7 +3,7 @@ export const handleInputChange = (event, form) => {
         [event.target.name]: event.target.value
     })
 }
-export const handleLogin = (form, app) => { //connect this login to server data
+export const handleLogin = async (form, app) => { //connect this login to server data
     if (form.state.username && form.state.password){
         const request = new Request("/api/login", {
             method: "post",
@@ -13,31 +13,19 @@ export const handleLogin = (form, app) => { //connect this login to server data
                 "Content-Type": "application/json"
             }
         });
-    
-        // Send the request with fetch()
-        fetch(request)
-            .then(res => {
-                console.log(res.status)
-                if (res.status === 200) {
-                    return res.json();
-                }
-                else{
-                    alert("invalid credentials")
-                }
+        try{
+            const response = await fetch(request)
+            const data = await response.json()
+            console.log(data._id)
+            app.currentUser = data._id
+            console.log(app.currentUser)
+            form.setState({
+                redirect: true
             })
-            .then(json => {
-                console.log(json._id)
-                form.setState({
-                    redirect: true
-                })
-                app.currentUser = json._id
-                console.log(app.currentUser)
-                
-            })
-            .catch(error => {
-                console.log(error);
-            });
 
+        }catch{
+            alert("invalid credentials")
+        }
     } 
     else{
         alert("Please fill out all required infromation")

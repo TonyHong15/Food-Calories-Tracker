@@ -151,7 +151,7 @@ class FoodForm extends React.Component {
                     )
                     })}
                 </select>
-                {console.log(this.props.appState.currentUser)}
+
                 <h3>Enter Your Food Name:</h3>
                 <TextField
                     value={this.state.foodName}
