@@ -235,12 +235,12 @@ app.post('/api/addfood/:id', async (req, res) => {
 // });
 
 //static pages
-// app.use(express.static(path.join(__dirname + "/client/build")))
+app.use(express.static(path.join(__dirname + "/client/build")))
 
 //serve react app
-// app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname + "client/build/index.html"))
-// })
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname + "client/build/index.html"))
+})
 
 
 
