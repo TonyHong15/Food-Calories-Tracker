@@ -1,7 +1,7 @@
 import React from 'react'
 import "./styles.css"
 import {Link} from 'react-router-dom'
-
+import {Redirect} from 'react-router-dom'
 /**
  * A menu with Side Bar where user can choose functionality
  *
@@ -41,7 +41,7 @@ class SideBar extends React.Component {
     //log out function
     logOut = () =>{
         window.sessionStorage.clear()
-        window.location.reload()
+        this.props.appState.currentUser = null;
     }
     
     //get picture from server
