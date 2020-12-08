@@ -3,7 +3,6 @@ import "./styles.css"
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { Grid, TextField, Button } from "@material-ui/core";
-import { loadFood, calculateCalories} from "../../api"
 // import FoodTracker from '../../../../server/services/tracker';
 
 /**
@@ -14,7 +13,6 @@ class Calories extends React.Component {
     constructor(props) {
         super(props);
         
-        this.getCurrentCalories = this.getCurrentCalories(this)
         this.submitCaloriesGoal = this.submitCaloriesGoal.bind(this)
 
         this.getCurrentCarbohydrates = this.getCurrentCarbohydrates(this)
@@ -23,8 +21,10 @@ class Calories extends React.Component {
         this.submitBrokenDownGoal = this.submitBrokenDownGoal.bind(this)
 
         this.state = {
-            caloriesGoal: 0,
-            totalCalories: this.getCurrentCalories,
+            goal: 0,
+            calorieGoal: 0,
+            caloriePCT: 0,
+            currentCalories: 0,
             carbohydrateGoal: 0,
             totalCarbohydrates: this.getCurrentCarbohydrates,
             fatGoal: 0,
@@ -39,34 +39,79 @@ class Calories extends React.Component {
         this.textFieldProteinsGoal = this.textFieldProteinsGoal.bind(this)
     }
 
-    getCurrentCalories() {
-        // TODO get today's food from backend
-        const food = loadFood()
-
-        
-        // TODO calculate total calories
-        calculateCalories(food) 
+    componentDidMount(){
+        this.getCurrentandGoal()
+    }
+    getCurrentandGoal = () => {
+        console.log(this.props.appState.currentUser)
+        const request = new Request('/api/users/'+ this.props.appState.currentUser, {
+            method: "get",
+            headers: {
+                Accept: "application/json, text/plain, */*",
+                "Content-Type": "application/json"
+            }
+        });
+        // Send the request with fetch()
+        fetch(request)
+            .then(res => {
+                console.log(res.status)
+                if (res.status === 200) {
+                    return res.json();
+                }
+            })
+            .then(json => {
+                console.log(json.foods)
+                const consumed = json.foods.reduce((total, food) => {
+                    return total + food.foodCalories
+                }, 0)
+                console.log(consumed)
+                const caloriePCT = Number(((consumed/json.goal)*100).toFixed(1)) 
+                this.setState({
+                    currentCalories: consumed,
+                    calorieGoal: json.goal,
+                    caloriePCT: caloriePCT
+                })
+            })
+            .catch(error => {
+                console.log(error);
+            });
         
     }
     textFieldCaloriesGoal(e) {
         this.setState({
-            caloriesGoal: e.target.value
+            goal: e.target.value
         });
     }
     submitCaloriesGoal(e) {
-        if (this.caloriesGoal == 0) {
-            this.setState({
-                currentCaloriesPCT: 100
+        const request = new Request('/api/setgoal/'+ this.props.appState.currentUser, {
+            method: "post",
+            body:  JSON.stringify(this.state),
+            headers: {
+                Accept: "application/json, text/plain, */*",
+                "Content-Type": "application/json"
+            }
+        });
+        // Send the request with fetch()
+        fetch(request)
+            .then(res => {
+                console.log(res.status)
+                if (res.status === 200) {
+                    return res.json();
+                }
             })
-        }
-        else {
-            this.setState({
-                currentCaloriesPCT: this.totalCalories / this.caloriesGoal
+            .then(json => {
+                console.log(json)
+                const caloriePCT = Number(((this.state.currentCalories/json.goal)*100).toFixed(1)) 
+                this.setState({
+                    goal: 0,
+                    calorieGoal: json.goal,
+                    caloriePCT: caloriePCT
+                })
             })
-        }
-        // TODO: Call the endpoint to the backend here
-        // user profile not set up yet 
-
+            .catch(error => {
+                console.log(error);
+            });
+            this.render()
     }
 
 
@@ -104,7 +149,7 @@ class Calories extends React.Component {
     }
 
     render() {
-        const caloriePCT = 60; // TODO 
+         
         return (
             <div className="CaloriesBackground">
                 <Grid container>
@@ -114,7 +159,7 @@ class Calories extends React.Component {
                         {/* ------------------------------------------------------------- */}
                         <h3>Daily Calories:</h3>
                         <TextField
-                            value={this.state.caloriesGoal}
+                            value={this.state.goal}
                             onChange={this.textFieldCaloriesGoal}
                             style={{ width: '100%' }}
                             // inputStyle={{ fontSize: "50px" }}
@@ -168,8 +213,8 @@ class Calories extends React.Component {
                         <h1> Calories % Consumed Today: </h1>
                         <div className="CaloriesProgressBar">
                             <CircularProgressbar
-                                value={caloriePCT}
-                                text={`${caloriePCT}%`}
+                                value={this.state.caloriePCT}
+                                text={`${this.state.caloriePCT}%`}
                                 styles={buildStyles({
                                     minValue: 0,
 
@@ -183,7 +228,7 @@ class Calories extends React.Component {
                                     // pathTransition: 'none',
 
                                     // Colors
-                                    pathColor: `rgba(62, 152, 199, ${caloriePCT / 100})`,
+                                    pathColor: `rgba(0, 200, 0, ${this.state.caloriePCT / 100})`,
                                     textColor: '#f88',
                                     trailColor: '#d6d6d6',
                                     backgroundColor: '#3e98c7',

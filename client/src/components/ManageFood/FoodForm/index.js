@@ -137,11 +137,11 @@ class FoodForm extends React.Component {
             foodName: '',
             foodCalories: 0
         });
+        this.render()
 
     }
 
     render() {
-        const caloriePCT = 60;
         return (
             <div>
                 <h1>Add Today's Food:</h1><br /><br />

@@ -136,7 +136,7 @@ app.get('/api/users/:id', async (req, res) => {
 })
 
 //setting calorie goal for specific user
-app.patch('/api/setgoal/:id', async (req, res) => {
+app.post('/api/setgoal/:id', async (req, res) => {
     const id = req.params.id
     
 	if (mongoose.connection.readyState != 1) {
