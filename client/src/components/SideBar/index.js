@@ -42,6 +42,35 @@ class SideBar extends React.Component {
     logOut = () =>{
         this.props.appState.currentUser = null;
     }
+    
+    //get picture from server
+    updateImage() {
+        // picture is saved in /api/users/(current user)
+        const request = new Request('/api/users/'+ this.props.appState.currentUser, {
+            method: "get",
+            headers: {
+                Accept: "application/json, text/plain, */*",
+                "Content-Type": "application/json"
+            }
+        });
+        // Send the request with fetch()
+        fetch(request)
+            .then(res => {
+                console.log(res.status)
+                if (res.status === 200) {
+                    return res.json();
+                }
+            })
+            .then(json => {
+                console.log(json.picture)
+                this.setState(
+                    {image_src: json.picture}
+                )
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
 
     render() {
         console.log(this.state.image)
