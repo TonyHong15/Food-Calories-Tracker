@@ -22,7 +22,7 @@ class ManageFood extends React.Component {
        this.loadFood()
     }
     loadFood = () =>{
-        const request = new Request('/api/users/'+ this.props.appState.currentUser, {
+        const request = new Request('/api/users/'+ window.sessionStorage.getItem('currentUser'), {
             method: "get",
             headers: {
                 Accept: "application/json, text/plain, */*",

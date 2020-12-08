@@ -10,7 +10,7 @@ class MainPage extends React.Component{
     }
 
     render() {
-        if (!this.props.appState.currentUser){
+        if (!window.sessionStorage.getItem('currentUser')){
             return(
                 <Redirect to={{pathname: '/'}}/> 
             )

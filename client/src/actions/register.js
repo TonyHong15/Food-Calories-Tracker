@@ -18,6 +18,7 @@ export const handleLogin = async (form, app) => { //connect this login to server
             const data = await response.json()
             console.log(data._id)
             app.currentUser = data._id
+            window.sessionStorage.setItem('currentUser', app.currentUser)
             console.log(app.currentUser)
             form.setState({
                 redirect: true

@@ -62,7 +62,7 @@ class DailyOverview extends React.Component{
     }
     getCurrentandGoal = () => {
             console.log(this.props.appState.currentUser)
-            const request = new Request('/api/users/'+ this.props.appState.currentUser, {
+            const request = new Request('/api/users/'+ window.sessionStorage.getItem('currentUser'), {
                 method: "get",
                 headers: {
                     Accept: "application/json, text/plain, */*",

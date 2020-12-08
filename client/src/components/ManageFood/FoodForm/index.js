@@ -109,8 +109,7 @@ class FoodForm extends React.Component {
 
     //ADDING A CUSTOM FOOD TO USER  (CONNECTED TO BACKEND)
     submitNewFood(e) {       
-        console.log(this.props.appState.currentUser)
-        const request = new Request('/api/addFood/'+ this.props.appState.currentUser, {
+        const request = new Request('/api/addFood/'+ window.sessionStorage.getItem('currentUser'), {
             method: "post",
             body: JSON.stringify(this.state),
             headers: {
@@ -137,7 +136,7 @@ class FoodForm extends React.Component {
             foodName: '',
             foodCalories: 0
         });
-        this.render()
+        
 
     }
 

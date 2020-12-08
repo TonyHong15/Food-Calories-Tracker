@@ -44,7 +44,7 @@ class Calories extends React.Component {
     }
     getCurrentandGoal = () => {
         console.log(this.props.appState.currentUser)
-        const request = new Request('/api/users/'+ this.props.appState.currentUser, {
+        const request = new Request('/api/users/'+ window.sessionStorage.getItem('currentUser'), {
             method: "get",
             headers: {
                 Accept: "application/json, text/plain, */*",
@@ -83,7 +83,7 @@ class Calories extends React.Component {
         });
     }
     submitCaloriesGoal(e) {
-        const request = new Request('/api/setgoal/'+ this.props.appState.currentUser, {
+        const request = new Request('/api/setgoal/'+ window.sessionStorage.getItem('currentUser'), {
             method: "post",
             body:  JSON.stringify(this.state),
             headers: {

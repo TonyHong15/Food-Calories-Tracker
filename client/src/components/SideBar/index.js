@@ -40,7 +40,8 @@ class SideBar extends React.Component {
 
     //log out function
     logOut = () =>{
-        this.props.appState.currentUser = null;
+        window.sessionStorage.clear()
+        window.location.reload()
     }
     
     //get picture from server
